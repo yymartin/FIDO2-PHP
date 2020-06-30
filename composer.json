@@ -1,5 +1,5 @@
 {
-    "name": "yymartin/FIDO2-PHP",
+    "name": "yymartin/fido2-php",
     "type": "library",
     "description": "FIDO2 server library in PHP",
     "keywords": ["FIDO2","PHP"],
