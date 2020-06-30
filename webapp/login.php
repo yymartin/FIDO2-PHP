@@ -1,7 +1,4 @@
 <?php 
-
-    declare(strict_types=1);
-
     /*
     * The MIT License (MIT)
     *
@@ -88,6 +85,7 @@
             session_destroy();
         } catch(Exception $exception) {
             echo $exception->getMessage();
+            session_destroy();
         }
     }  
 ?>
