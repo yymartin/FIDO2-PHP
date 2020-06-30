@@ -22,7 +22,7 @@ Login is accessible using http://localhost:8000/webapp/login.php
 
 ## Warning
 This work can freely be used for another usage and be adapted in a real FIDO2 webserver. To do so, HTTPS must be enabled to avoid any security vulnerabilities.
-To do so, simply uncomment assertions in files: 
+To enable HTTPS, simply uncomment assertions in files: 
 - vendor/web-auth/webauthn-lib/src/AuthenticatorAttestationResponseValidator.php (line 116)
 - vendor/web-auth/webauthn-lib/src/AuthenticatorAssertionResponseValidator.php (line 146)
 
