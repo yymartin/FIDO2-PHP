@@ -1,0 +1,20 @@
+{
+    "name": "yymartin/FIDO2-PHP",
+    "type": "library",
+    "description": "FIDO2 server library in PHP",
+    "keywords": ["FIDO2","PHP"],
+    "homepage": "https://github.com/yymartin/FIDO2-PHP",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yoan Martin",
+            "email": "martin.yoan@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "web-auth/webauthn-lib": "^3.2",
+        "nyholm/psr7-server": "^1.0",
+        "nyholm/psr7": "^1.3"
+    }
+}
