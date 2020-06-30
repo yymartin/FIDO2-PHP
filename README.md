@@ -27,4 +27,4 @@ To enable HTTPS, simply uncomment assertions in files:
 - vendor/web-auth/webauthn-lib/src/AuthenticatorAssertionResponseValidator.php (line 146)
 
 ## Licence
-This work is release under [MIT licence](https://github.com/yymartin/fido2-php/blob/master/LICENSE).
+This work is released under [MIT license](https://github.com/yymartin/fido2-php/blob/master/LICENSE).
