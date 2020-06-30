@@ -3,7 +3,7 @@
     "type": "library",
     "description": "FIDO2 server library in PHP",
     "keywords": ["FIDO2","PHP"],
-    "homepage": "https://github.com/yymartin/FIDO2-PHP",
+    "homepage": "https://github.com/yymartin/fido2-php",
     "license": "MIT",
     "authors": [
         {
