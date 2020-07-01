@@ -70,10 +70,10 @@
     }
 
     public function register() {
-        Assertion::true((isset($_SESSION['user_entity']) 
-                        && isset($_SESSION['creds_options']) 
-                        && isset($_SESSION['rp_entity'])
-                        && isset($_SESSION['repository'])), 
+        Assertion::true((!isset($_SESSION['user_entity']) 
+                        && !isset($_SESSION['creds_options']) 
+                        && !isset($_SESSION['rp_entity'])
+                        && !isset($_SESSION['repository'])), 
                         'Some values in $SESSION block the registration');
             
             $authenticatorSelectionCriteria = new AuthenticatorSelectionCriteria(
@@ -99,10 +99,10 @@
     }
 
     public function login(){
-        Assertion::true((isset($_SESSION['user_entity']) 
-                        && isset($_SESSION['creds_options']) 
-                        && isset($_SESSION['rp_entity'])
-                        && isset($_SESSION['repository'])), 
+        Assertion::true((!isset($_SESSION['user_entity']) 
+                        && !isset($_SESSION['creds_options']) 
+                        && !isset($_SESSION['rp_entity'])
+                        && !isset($_SESSION['repository'])), 
                         'Some values in $SESSION block the login');        
         // Get the list of authenticators associated to the user
         $credentialSources = $this->publicKeyCredentialSourceRepository->findAllForUserEntity($this->userEntity);
