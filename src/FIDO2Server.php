@@ -22,7 +22,7 @@
     use Webauthn\PublicKeyCredentialSourceRepository;
     use Webauthn\PublicKeyCredentialRequestOptions;
 
-    class FIDO2Server {
+    class Fido2Server {
 
     /**
      * @var PublicKeyCredentialRpEntity
