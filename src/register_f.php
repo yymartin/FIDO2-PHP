@@ -8,6 +8,8 @@
     * of the MIT license.  See the LICENSE file for details.
     */
 
+    require_once __DIR__ . '/../../../autoload.php';
+
     use Webauthn\PublicKeyCredentialCreationOptions;
     use Webauthn\PublicKeyCredentialRpEntity;
     use Webauthn\PublicKeyCredentialUserEntity;

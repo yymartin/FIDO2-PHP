@@ -60,7 +60,7 @@
             };
 
             var xhr = new XMLHttpRequest();
-            var url = "vendor/fido2-php/src/register_f.php";
+            var url = "vendor/yymartin/fido2-php/src/register_f.php";
             xhr.open("POST", url, true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
