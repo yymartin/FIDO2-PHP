@@ -7,6 +7,7 @@
     * This software may be modified and distributed under the terms
     * of the MIT license.  See the LICENSE file for details.
     */
+
     require_once __DIR__ . '/../../../autoload.php';
 
     use Webauthn\PublicKeyCredentialRequestOptions;
@@ -16,15 +17,18 @@
     use Webauthn\PublicKeyCredentialRpEntity;
     use Webauthn\Server;
 
+    use Assert\Assertion;
+
     use Nyholm\Psr7\Factory\Psr17Factory;
     use Nyholm\Psr7Server\ServerRequestCreator;
 
     session_start();
 
-    assert(isset($_SESSION['user_entity']) 
-        && isset($_SESSION['creds_options']) 
-        && isset($_SESSION['rp_entity'])
-        && isset($_SESSION['repository']), 'Some values in $SESSION block the login');
+    Assertion::true((isset($_SESSION['user_entity']) 
+                    && isset($_SESSION['creds_options']) 
+                    && isset($_SESSION['rp_entity'])
+                    && isset($_SESSION['repository'])), 
+                    'Some values in $SESSION block the login');
         
     header("Content-Type: application/json"); 
     $data = file_get_contents("php://input"); 

@@ -11,6 +11,7 @@
     namespace WebauthnServer;
 
     use Cose\Algorithms;
+    
     use Webauthn\AuthenticatorSelectionCriteria;
     use Webauthn\PublicKeyCredentialDescriptor;
     use Webauthn\PublicKeyCredentialCreationOptions;
@@ -21,6 +22,9 @@
     use Webauthn\PublicKeyCredentialSource;
     use Webauthn\PublicKeyCredentialSourceRepository;
     use Webauthn\PublicKeyCredentialRequestOptions;
+
+    use Assert\Assertion;
+
 
     class Fido2Server {
 
@@ -51,8 +55,8 @@
         );
 
         $this->userEntity = new PublicKeyCredentialUserEntity(
-            $userID,
             $userName,
+            $userID,
             $userDisplayName
         );
 
@@ -66,12 +70,13 @@
     }
 
     public function register() {
-        assert((!isset($_SESSION['user_entity']) 
-                && !isset($_SESSION['creds_options']) 
-                && !isset($_SESSION['rp_entity'])
-                && !isset($_SESSION['repository'])), 'Some values in $SESSION block the registration');
+        Assertion::true((isset($_SESSION['user_entity']) 
+                        && isset($_SESSION['creds_options']) 
+                        && isset($_SESSION['rp_entity'])
+                        && isset($_SESSION['repository'])), 
+                        'Some values in $SESSION block the registration');
             
-                $authenticatorSelectionCriteria = new AuthenticatorSelectionCriteria(
+            $authenticatorSelectionCriteria = new AuthenticatorSelectionCriteria(
                 null,
                 false,
                 AuthenticatorSelectionCriteria::USER_VERIFICATION_REQUIREMENT_REQUIRED
@@ -83,20 +88,22 @@
                 [],
                 $authenticatorSelectionCriteria                                                                                                                                                     
             );
+
             $_SESSION['user_entity'] = json_encode($this->userEntity->jsonSerialize());
             $_SESSION['creds_options'] = json_encode($publicKeyCredentialCreationOptions->jsonSerialize());
             $_SESSION['rp_entity'] = json_encode($this->rpEntity->jsonSerialize());
             $_SESSION['repository'] = json_encode($this->publicKeyCredentialSourceRepository->jsonSerialize());
             
             $json_value = $publicKeyCredentialCreationOptions->jsonSerialize();
-            require('attestation.php');
+            include('attestation.html');
     }
 
     public function login(){
-        assert((!isset($_SESSION['user_entity']) 
-                && !isset($_SESSION['creds_options']) 
-                && !isset($_SESSION['rp_entity'])
-                && !isset($_SESSION['repository'])), 'Some values in $SESSION block the login');            
+        Assertion::true((isset($_SESSION['user_entity']) 
+                        && isset($_SESSION['creds_options']) 
+                        && isset($_SESSION['rp_entity'])
+                        && isset($_SESSION['repository'])), 
+                        'Some values in $SESSION block the login');        
         // Get the list of authenticators associated to the user
         $credentialSources = $this->publicKeyCredentialSourceRepository->findAllForUserEntity($this->userEntity);
 
@@ -117,7 +124,7 @@
         $_SESSION['repository'] = json_encode($this->publicKeyCredentialSourceRepository->jsonSerialize());
 
         $json_value = $publicKeyCredentialRequestOptions->jsonSerialize();
-        require('assertion.php');  
+        include('assertion.html');  
     }
 }
 ?>

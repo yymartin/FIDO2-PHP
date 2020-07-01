@@ -17,14 +17,17 @@
     use Webauthn\PublicKeyCredentialSource;
     use Webauthn\PublicKeyCredentialSourceRepository;
 
+    use Assert\Assertion;
+
     use Nyholm\Psr7\Factory\Psr17Factory;
     use Nyholm\Psr7Server\ServerRequestCreator;
 
     session_start();
-    assert(isset($_SESSION['user_entity']) 
-        && isset($_SESSION['creds_options']) 
-        && isset($_SESSION['rp_entity'])
-        && isset($_SESSION['repository']), 'Some values in $SESSION block the registration');
+    Assertion::true((isset($_SESSION['user_entity']) 
+                    && isset($_SESSION['creds_options']) 
+                    && isset($_SESSION['rp_entity'])
+                    && isset($_SESSION['repository'])), 
+                    'Some values in $SESSION block the registration');
     
     header("Content-Type: application/json"); 
     $data = file_get_contents("php://input"); 
