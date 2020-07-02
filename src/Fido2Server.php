@@ -9,13 +9,10 @@
     */
 
     namespace WebauthnServer;
-
-    use Cose\Algorithms;
     
     use Webauthn\AuthenticatorSelectionCriteria;
     use Webauthn\PublicKeyCredentialDescriptor;
     use Webauthn\PublicKeyCredentialCreationOptions;
-    use Webauthn\PublicKeyCredentialParameters;
     use Webauthn\PublicKeyCredentialRpEntity;
     use Webauthn\PublicKeyCredentialUserEntity;
     use Webauthn\Server;

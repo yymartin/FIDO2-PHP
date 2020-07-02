@@ -64,7 +64,6 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     var result = xhr.response;
-                    console.log(result);
                     if (result === ''){
                         window.location.href= window.location.pathname;
                     } else {
