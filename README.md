@@ -23,7 +23,7 @@ A PublicKeyCredentialSource is an object representing an authenticator. The way 
 An exemple is provided here but it is not recommended to use it in a production environment since it stores PublicKeyCredentialSource in a file. 
 
 ### Usage of Fido2Server
-Fido2Server is an object representing the Webauthn server. An instance requires elements from your server and from the user you want to register/login. Then, you can call the function register() or login(). If the function works correctly, SESSION values SESSION['registered'] or SESSION['logged_in'], otherwise, an error message is displayed. 
+Fido2Server is an object representing the Webauthn server. An instance requires elements from your server and from the user you want to register/login. Then, you can call the function register() or login(). If the function works correctly, SESSION values SESSION['registered'] or SESSION['logged_in'] are set, otherwise, an error message is displayed. 
 
 An exemple is provided using the following:
 
