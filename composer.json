@@ -26,5 +26,6 @@
         "psr-4": {
             "WebauthnServer\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "stable"
 }
